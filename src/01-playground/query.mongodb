@@ -1,0 +1,7 @@
+use("sample_training");
+
+// Metodo de consulta o las query
+
+db.zips.find({
+  state: "NY"
+}).count()
