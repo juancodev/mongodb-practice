@@ -1,0 +1,5 @@
+use("mongo_store");
+
+db.products.find();
+
+// oid = ObjectId

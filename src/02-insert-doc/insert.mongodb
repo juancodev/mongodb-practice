@@ -1,0 +1,15 @@
+// Flexible a la hora de crear bases de datos inexistente.
+use("mongo_store");
+
+// insertOne me sirve para insertar un documentos aunque no haya sido creado.
+db.products.insertOne({
+  name: "Product 1",
+  price: 1000
+})
+
+db.products.insertOne({
+  name: "Product 2",
+  price: 200
+})
+
+// siempre te retorna el último valor en nuestro output
