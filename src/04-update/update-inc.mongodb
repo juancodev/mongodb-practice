@@ -1,0 +1,17 @@
+use("mongo_store");
+
+// para poder actualizar necesitamos el identificador y el cambio mediante operators
+
+db.products.updateOne({
+    // query
+    _id: ObjectId("65e13e7450e4839d8714ee67")
+  },
+  // operator inc
+  {
+    $inc: {
+      price: 100,
+    }
+  }
+)
+
+// $inc nos permite incrementar el campo y la cantidad que sea necesaria.

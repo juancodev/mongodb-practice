@@ -1,0 +1,19 @@
+use("mongo_store");
+
+// para poder actualizar necesitamos el identificador y el cambio mediante operators
+
+db.products.updateOne({
+    // query
+    _id: ObjectId("65e13e7450e4839d8714ee68")
+  },
+  // operator set
+  {
+    $set: {
+      name: "Change product 2",
+      price: 200,
+      tags: ['A', 'B', 'C']
+    }
+  }
+)
+
+// $set me permite modificar los elementos existentes y/o agregar otros nuevos.
