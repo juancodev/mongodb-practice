@@ -1,0 +1,12 @@
+// delete a property
+use("sample_training")
+
+db.zips.updateMany({
+  //query
+  city: 'CLEVELAND'
+}, {
+  // operator $unset
+  $unset: {
+    new_value: ""
+  }
+})

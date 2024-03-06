@@ -1,0 +1,12 @@
+// rename a property
+use("sample_training");
+
+db.zips.updateMany({
+  //query
+  city: 'CLEVELAND'
+}, {
+  // operator $rename
+  $rename: {
+    newValue: "new_value"
+  }
+})

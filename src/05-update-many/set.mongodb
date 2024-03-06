@@ -1,0 +1,13 @@
+// this create or modified a value
+use("sample_training")
+
+db.zips.updateMany({
+  // query
+  city: "CLEVELAND"
+}, {
+  //operator set
+  $set: {
+    // create or modified
+    newValue: "New Value"
+  }
+})
