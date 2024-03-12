@@ -1,0 +1,13 @@
+use("prueba")
+
+// upsert always is in the method updateOne
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2024-01-04",
+}, {
+  $push: {
+    readings: 2024
+  }
+}, {
+  upsert: true
+})

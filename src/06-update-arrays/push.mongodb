@@ -1,0 +1,11 @@
+use("prueba")
+
+db.inventory.updateOne({
+  _id: 4
+}, {
+  // push operators
+  $push: {
+    // field and value
+    tags: "headphone"
+  }
+})

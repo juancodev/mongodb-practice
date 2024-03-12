@@ -1,0 +1,19 @@
+use("prueba")
+
+// json empty = all query
+// db.inventory.updateMany({}, {
+//   // pull operators remove one element from arrays
+//   $pull: {
+//     tags: "book"
+//   }
+// })
+
+// remove many elements from arrays
+db.inventory.updateMany({}, {
+  $pull: {
+    tags: {
+      //in operators
+      $in: ["appliance", "school"]
+    }
+  }
+})
