@@ -1,0 +1,17 @@
+use("prueba")
+
+// deleteOne solamente elimina un registro que cumpla con el filtro.
+db.products.deleteOne({
+  _id: 1
+})
+
+// deleteMany, elimina todos los productos que cumplan con la consulta o filtro.
+db.products.deleteMany({
+  price: 100
+});
+
+// borrar solamente los documentos y dejar la colección vacía
+//db.products.deleteMany({})
+
+// borra toda la colección
+// db.products.drop()
