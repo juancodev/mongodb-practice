@@ -1,0 +1,40 @@
+use("prueba")
+
+//using $gt (>) o $gte (>=)
+db.inventory.find({
+  qty: {
+    $gt: 20
+  }
+})
+
+db.inventory.find({
+  qty: {
+    $gte: 20
+  }
+})
+
+
+//using $lt (<) o $lte (<=)
+db.inventory.find({
+  qty: {
+    $lt: 20
+  }
+});
+
+db.inventory.find({
+  qty: {
+    $lte: 20
+  }
+});
+
+// operadores combinados
+db.inventory.find({
+  "item.code": {
+    $ne: "123"
+  },
+  //range
+  qty: {
+    $gte: 20,
+    $lte: 25
+  }
+})
