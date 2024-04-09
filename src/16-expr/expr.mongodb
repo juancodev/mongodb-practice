@@ -1,0 +1,8 @@
+use("prueba");
+
+// el operador $expr nos sirve para comparar expresiones entre una misma consulta
+db.monthlyBudget.find({
+  $expr: {
+    $gte: ["$spent", "$budget"]
+  }
+})
