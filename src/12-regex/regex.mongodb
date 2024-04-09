@@ -1,0 +1,39 @@
+use("prueba")
+
+db.inventory.find({
+  "item.description": "Single line description."
+})
+
+db.inventory.find({
+  "item.description": {
+    $regex: /line/
+  }
+})
+
+// sin importar si esta en mayúscula o minúscula
+db.inventory.find({
+  "item.description": {
+    $regex: /LINE/i
+  }
+})
+
+// si queremos conseguir solamente las que terminen en line
+db.inventory.find({
+  "item.description": {
+    $regex: /line$/i
+  }
+})
+
+// si queremos conseguir el que comience una palabra
+db.inventory.find({
+  "item.description": {
+    $regex: /^single/i
+  }
+})
+
+// obtener una palabra que comience con una inicial y contenga salto de multilinea
+db.inventory.find({
+  "item.description": {
+    $regex: /^s/im
+  }
+})

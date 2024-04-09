@@ -1,0 +1,68 @@
+use("prueba")
+
+// el operador $in funciona tanto para valores como para arreglos.
+
+// $in funciona como es 20 o 25
+db.inventory.find({
+  qty: {
+    $in: [20, 25]
+  }
+});
+
+db.inventory.find({
+  tags: {
+    $in: ["book", "electronics"]
+  }
+})
+
+// $nin funciona como un operador que sería a lo contrario.
+db.inventory.find({
+  qty: {
+    $nin: [20, 25]
+  }
+})
+
+db.inventory.find({
+  tags: {
+    $nin: ["book", "electronics"]
+  }
+})
+
+// Solamente aplicados para arreglos
+
+db.inventory.find({
+  tags: "book"
+})
+
+// Se interpreta como el operador and
+db.inventory.find({
+  tags: ["school", "book"]
+})
+
+//Esta busqueda no sale reflejada porque no se consigue según el orden
+db.inventory.find({
+  tags: ["book", "school"]
+})
+
+// arrays $all
+db.inventory.find({
+  tags: {
+    $all: ["book", "school"]
+  }
+})
+
+// $size me permite traer el tamaño del arreglo
+db.inventory.find({
+  tags: {
+    $size: 2
+  }
+})
+
+// $elemMatch me trae todos los elementos que coincida con la busqueda
+db.survey.find({
+  results: {
+    $elemMatch: {
+      product: "xyz"
+    }
+  }
+})
