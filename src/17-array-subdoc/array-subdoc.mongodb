@@ -1,0 +1,28 @@
+use("sample_training");
+
+// buscamos en arreglos que tengan subdocumentos (objectos) pero le indicamos una posición en específico (0), es decir, la primera coincidencia.
+db.companies.find({
+  "relationships.0.person.last_name": "Zuckerberg"
+}, {
+  name: 1,
+  relationships: 1
+})
+
+db.companies.find({
+  "relationships.0.person.first_name": "Mark"
+}, {
+  name: 1,
+  relationships: 1
+}).count()
+
+// De esta forma buscamos cualquier elemento que coincida de n° cantidad de subdocumentos pero que coincidan con el primer numbre sea Mark
+db.companies.find({
+  relationships: {
+    $elemMatch: {
+      "person.first_name": "Mark"
+    }
+  }
+}, {
+  name: 1,
+  relationships: 1
+}).count()

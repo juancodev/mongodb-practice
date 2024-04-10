@@ -1,0 +1,33 @@
+use("sample_airbnb");
+
+//sin aggregation framework
+
+db.listingsAndReviews.find({
+  amenities: "Wifi"
+}, {
+  price: 1,
+  amenities: 1
+})
+
+// con aggregation Framework, esto trabaja como pipelines, es decir, como tuberías que al final retorna un valor
+
+// [], [], []
+db.listingsAndReviews.aggregate([{
+    $match: {
+      amenities: "Wifi"
+    }
+  },
+  {
+    $project: {
+      address: 1
+    }
+  },
+  {
+    $group: {
+      _id: "$address.country",
+      count: {
+        $sum: 1
+      }
+    }
+  }
+])

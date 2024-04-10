@@ -1,0 +1,17 @@
+use("sample_training");
+
+// Sort = ordena, por defecto va ascendete.
+// 1 = 0 - 10, A-Z ascendente
+// -1 = 10 - 0, Z-A descendente
+// limit es para indicar el límite de cuantos elementos mostrar
+
+db.zips
+  .find({
+    pop: {
+      $gte: 100
+    }
+  })
+  .sort({
+    pop: 1
+  })
+  .limit(2)

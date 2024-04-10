@@ -1,0 +1,6 @@
+use("prueba");
+
+db.categories
+  .find()
+  .skip(0)
+  .limit(2)
